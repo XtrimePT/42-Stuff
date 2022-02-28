@@ -14,20 +14,20 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-    size_t  i;
-	void    *ptr;
-	
+	size_t	i;
+	void	*ptr;
+
 	ptr = malloc(count * size);
 	i = 0;
 	while (i < count)
 	{
-	    ptr[i] = 0;
-	    i++;
+		ptr[i] = 0;
+		i++;
 	}
 	return (ptr);
 }
 
-
+/*
 int main()
 {
     int i;
@@ -38,3 +38,4 @@ int main()
     free(ptr);
 	return 0;
 }
+*/

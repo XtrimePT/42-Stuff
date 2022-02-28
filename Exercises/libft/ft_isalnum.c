@@ -20,3 +20,12 @@ int	ft_isalnum(int arg)
 		return (1);
 	return (0);
 }
+
+/*
+int main()
+{
+	char c = '-';
+	printf("%d", ft_isalnum(c));
+	return 0;
+}
+*/

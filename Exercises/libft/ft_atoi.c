@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	get_number(int numero, char *ptr, int *i, int sinal)
+static int	get_number(int numero, char *ptr, int *i, int sinal)
 {
 	if (ptr[*i] >= '0' && ptr[*i] <= '9')
 	{
@@ -44,6 +44,7 @@ int	ft_atoi(const char *str)
 			sinal = sinal * -1;
 		if (!(ptr[i + 1] >= '0' && ptr[i + 1] <= '9'))
 			return (0);
+		i++;
 	}
 	numero = 0;
 	return (get_number(numero, ptr, &i, sinal));
