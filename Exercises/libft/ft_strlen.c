@@ -21,3 +21,12 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
+/*
+int main()
+{
+	char str[] = "abcd";
+	printf("%d", ft_strlen(str));
+	return (0);
+	}
+*/

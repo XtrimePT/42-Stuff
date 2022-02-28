@@ -18,3 +18,12 @@ int	ft_digit(int arg)
 		return (1);
 	return (0);
 }
+
+ /*
+int main()
+{
+	char c = 'f';
+	printf("%d", ft_isdigit(c));
+	return 0;
+}
+*/
