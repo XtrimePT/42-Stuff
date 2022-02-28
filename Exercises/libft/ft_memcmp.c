@@ -43,4 +43,5 @@ int main()
 	//printf("%d", memcmp(a, b, 5));
 	printf("%d", ft_memcmp(a, b, 5));
 	return 0;
-}*/
+}
+*/

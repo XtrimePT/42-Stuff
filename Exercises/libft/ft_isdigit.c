@@ -19,7 +19,7 @@ int	ft_digit(int arg)
 	return (0);
 }
 
- /*
+/*
 int main()
 {
 	char c = 'f';
