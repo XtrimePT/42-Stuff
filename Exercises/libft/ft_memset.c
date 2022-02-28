@@ -32,6 +32,8 @@ void	*ft_memset(void *b, int c, size_t len)
 /*
 int main()
 {
-	
+    char a[] = "abcef";
+    ft_memset(a, 'b', 3);
+    printf("%s", a);
 }
 */
