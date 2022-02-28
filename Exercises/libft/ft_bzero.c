@@ -25,3 +25,17 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}	
 }
+
+/*
+int main()
+{
+    char a[] = "abcde";
+    ft_bzero(a, 3);
+    int i = 0;
+    while (a[i] == '\0')
+    {
+        printf("%d\n", a[i]);
+        i++;
+    }
+}
+*/
