@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joacorre <joacorre@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 23:54:51 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/28 23:54:51 by joacorre         ###   ########.fr       */
+/*   Created: 2022/03/10 22:56:29 by joacorre          #+#    #+#             */
+/*   Updated: 2022/03/10 22:56:29 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,39 @@
 	return (i);
 }*/
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*substr;
-	unsigned int	i;
+	char	*str;
+	int		i;
+	int		j;
 
-	substr = malloc((len + 1) * sizeof(char));
-	if (!substr || ft_strlen(s) < start)
+	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1 * sizeof(char));
+	if (!str)
 		return (NULL);
 	i = 0;
-	while (i < len && s[start] != '\0')
+	j = 0;
+	while (s1[j] != '\0')
 	{
-		substr[i] = s[start];
+		str[i] = s1[j];
 		i++;
-		start++;
+		j++;
 	}
-	substr[i] = '\0';
-	return (substr);
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
-/*
-int main()
+/*int main()
 {
-	char a[] = "abcdef";
-	char *ptr = ft_substr(a, 2, 1);
+	char a[] = "abc";
+	char b[] = "def";
+	char *ptr = ft_strjoin(a, b);
 	printf("%s", ptr);
-}
-*/
+	return (0);
+}*/
