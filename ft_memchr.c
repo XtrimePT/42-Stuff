@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 05:03:30 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/21 05:11:15 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 13:50:50 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (ptr + i);
 		i++;
 	}
-	return ('\0');
+	return (NULL);
 }
 
 /*
 int main()
 {
 	char a[] = "abcdef";
-	char *ptr = memchr(a, 'c', 3);
+	char *ptr = ft_memchr(a, 'z', 3);
 	printf("%s", ptr);
 	//printf("%d", ft_strncmp(a, b, 2));
 	return 0;

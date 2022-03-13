@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 03:11:22 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/21 04:33:49 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 13:52:00 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strrchr(const char *s, int c)
 			return (ptr + i);
 		i--;
 	}
-	return ('\0');
+	return (NULL);
 }
 
 /*

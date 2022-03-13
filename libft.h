@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joacorre <joacorre@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 20:35:56 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/27 20:35:56 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:02:21 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
-void	ft_calloc(size_t count, size_t size);
+void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int arg);
 int		ft_isalpha(int arg);
 int		ft_isascii(int arg);
-int		ft_digit(int arg);
+int		ft_isdigit(int arg);
 int		ft_isprint(int arg);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
