@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joacorre <joacorre@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 23:08:55 by joacorre          #+#    #+#             */
-/*   Updated: 2022/03/10 23:08:55 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 19:52:19 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,31 @@
 	return (i);
 }*/
 
+static int	start_index(char const *s1, char const *set)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	int		i;
 	int		j;
-	int		set_len;
+	int		k;
 
-	set_len = ft_strlen(set);
-	str = malloc((ft_strlen(s1) - (set_len * 2)) + 1 * sizeof(char));
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
-	j = set_len;
-	while (s1[j + set_len] != '\0')
-	{
-		str[i] = s1[j];
-		i++;
-		j++;
-	}
+	start_index(s1, set);
+	
 	str[i] = '\0';
 	return (str);
 }
