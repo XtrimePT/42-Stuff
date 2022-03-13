@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 00:34:10 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/21 00:57:17 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 16:26:56 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	if (dstsize > 0)
 	{
 		i = 0;
-		while (i < (dstsize - 1))
+		while (src[i] != '\0' && i < (dstsize - 1))
 		{
 			dst[i] = src[i];
 			i++;
 		}
 		dst[i] = '\0';
 	}
-		i = 0;
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	return (ft_strlen(src));
 }
 
 /*

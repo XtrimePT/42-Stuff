@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 00:58:46 by joacorre          #+#    #+#             */
-/*   Updated: 2022/03/13 15:23:23 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 16:27:40 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	j = 0;
-	while (src[j] != '\0' && i < (dstsize - 1))
+	while (src[j] != '\0' && i + 1 < dstsize)
 	{
 		dst[i] = src[j];
 		i++;
@@ -41,9 +41,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 /*
 int main()
 {
-	char src[] = "abcdef";
-	char dst[5] = "efg";
-	int cat_size = strlcat(dst, src, 0);
+	char src[] = "lorem ipsum dolor sit amet";
+	char dst[10] = "a";
+	int cat_size = ft_strlcat(dst, src, 0);
 	printf("%d \n%s",cat_size, dst);
 
 	return 0;
