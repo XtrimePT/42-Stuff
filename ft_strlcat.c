@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 00:58:46 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/21 04:16:47 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 15:23:23 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,36 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	dst_len;
-	size_t	src_len;
-	size_t	dst_cat_start;
+	size_t	j;
 
-	dst_len = 0;
-	src_len = 0;
-	while (dst[dst_len] != '\0')
-		dst_len++;
-	while (src[src_len] != '\0')
-		src_len++;
+	dst_len = ft_strlen(dst);
 	i = 0;
-	dst_cat_start = dst_len;
-	while (src[i] != '\0')
+	while (dst[i] != '\0' && i < dstsize)
 	{
-		if (dst_cat_start >= dstsize - 1)
-			break ;
-		dst[dst_cat_start] = src[i];
-		dst_cat_start++;
 		i++;
 	}
-	dst[dst_cat_start] = '\0';
-	return (dstsize + src_len);
+	j = 0;
+	while (src[j] != '\0' && i < (dstsize - 1))
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	if (i < dstsize)
+		dst[i] = '\0';
+	if (dstsize < dst_len)
+		return (dstsize + ft_strlen(src));
+	return (dst_len + ft_strlen(src));
 }
 
 /*
 int main()
 {
 	char src[] = "abcdef";
-	char dst[] = "123";
-	int cat_size = ft_strlcat(dst, src, 5);
+	char dst[5] = "efg";
+	int cat_size = strlcat(dst, src, 0);
 	printf("%d \n%s",cat_size, dst);
 
 	return 0;
-}*/
+}
+*/
