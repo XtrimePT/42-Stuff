@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 03:11:22 by joacorre          #+#    #+#             */
-/*   Updated: 2022/03/13 13:52:00 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 16:58:50 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		i++;
 	}
-	while (i)
+	if (c == '\0')
+		return (ptr + i);
+	while (i >= 0)
 	{
 		if (ptr[i] == c)
 			return (ptr + i);
+		if (i == 0)
+			break ;
 		i--;
 	}
 	return (NULL);

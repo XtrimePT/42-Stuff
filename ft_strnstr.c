@@ -6,7 +6,7 @@
 /*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 05:28:53 by joacorre          #+#    #+#             */
-/*   Updated: 2022/02/21 05:50:11 by joacorre         ###   ########.fr       */
+/*   Updated: 2022/03/13 17:16:35 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (hay[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (need[j] == hay[i + j])
+		while ((need[j] == hay[i + j]) && (i + j) < len)
 		{
 			if (need[j + 1] == '\0')
 				return (hay + i);
@@ -41,8 +41,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 /*
 int main()
 {
-	char a[] = "string grande para caramba";
-	char b[] = "para";
+	char a[] = "lorem ipsum dolor sit amet";
+	char b[] = "dolor";
 	char *ptr = ft_strnstr(a, b, 15);
 	printf("%s", ptr);
 	return 0;
