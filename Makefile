@@ -9,6 +9,7 @@ OBJECTS = $(SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
+	gcc -c $(SOURCES) $(FLAGS)
 	ar -rcs $(NAME) $(OBJECTS)
 
 clean:

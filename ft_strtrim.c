@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joacorre <joacorre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joacorre <joacorre@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 23:08:55 by joacorre          #+#    #+#             */
-/*   Updated: 2022/03/13 19:52:19 by joacorre         ###   ########.fr       */
+/*   Created: 2022/03/13 23:53:58 by joacorre          #+#    #+#             */
+/*   Updated: 2022/03/13 23:53:58 by joacorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
