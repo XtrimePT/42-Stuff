@@ -12,54 +12,84 @@
 
 #include "libft.h"
 
-void    add_string(char **string, char const *s, int len, int ptr_index)
+void    string_copy(char *dest, char *ori, int *ori_index, int finish, char *c)
 {
-    int i;
-    
-    i = 0;
-    while (i < len)
-    {
-        string[ptr_index][i] = s[i];
-        i++;
-    }
-    string[ptr_index][i] = '\0';
+	int i;
+	
+	i = 0;
+	if (!(finish - 1 == 0 && ori[finish - 1] == *c))
+	{
+		while (*ori_index < finish)
+		{
+			dest[i] = ori[*ori_index];
+			i++;
+			*ori_index = *ori_index + 1;
+		}
+	}
+	dest[i] = '\0';
 }
 
-char	**ft_split(char const *s, char c)
+void    chars_malloc(char **strings, char *s, char *c)
 {
-	char    **strings;
-	char    *ptr;
-	int     i;
-	int     j;
-	int     k;
+	int i;
+	int j;
+	int str_index;
 	
-	strings = &ptr;
 	i = 0;
 	j = 0;
-	k = 0;
+	str_index = 0;
+	while (s[j] != '\0')
+	{
+		if ((j == 0 && s[j] == *c) || s[j + 1] == *c || s[j + 1] == '\0')
+		{
+			if (j == 0 && s[j] == *c)
+				strings[str_index] = malloc(1 * sizeof(char));
+			else
+				strings[str_index] = malloc((j - i) + 2 * sizeof(char));
+			string_copy(strings[str_index], s, &i, j + 1, c);
+			i++;
+			str_index++;
+		}
+		j++;
+	}
+}
+
+char    **ft_split(char *s, char c)
+{
+	char    **strings;
+	int i;
+	int count;
+	
+	i = 0;
+	count = 0;
 	while (s[i] != '\0')
 	{
-	    while (s[i] != c)
-	    {
-	        i++;
-	        j++;
-	    }
-	    ptr = malloc(j + 1 * sizeof(char));
-	    if (!ptr)
-	        return (NULL);
-        strings[k] = ptr;
-        add_string(strings, s, j, k);
-        i++;
-        k++;
-        j = 0;
+		if (s[i] == c)
+		{
+			count++;
+		}
+		i++;
 	}
+	if (!(strings = malloc((count + 2) * sizeof(char *))))
+		return (NULL);
+	strings[count + 1] = NULL;
+	chars_malloc(strings, s, &c);
+	
 	return (strings);
 }
 
-
 int main()
 {
-	char **ptr = ft_split("Teste de Strings", ' ');
-	printf("%s", ptr[0]);
-	return (0);
+	char **strings;
+	char a[] = "this is a string";
+	strings = ft_split(a, ' ');
+
+	int i = 0;
+	
+	while (strings[i])
+	{
+		printf ("%s\n", strings[i]);
+		i++;
+	}
+	return 0;
 }
