@@ -12,6 +12,16 @@
 
 #include "libft.h"
 
+/*size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}*/
+
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	nbytes;
@@ -19,3 +29,10 @@ void	ft_putstr_fd(char *s, int fd)
 	nbytes = ft_strlen(s);
 	write(fd, s, nbytes);
 }
+
+/*int main()
+{
+    ft_putendl_fd("abcd", 1);
+
+    return 0;
+}*/
