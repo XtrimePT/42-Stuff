@@ -20,19 +20,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    unsigned int    i;
-    char            *ptr;
-    
-    i = 0;
-    if (!(ptr = malloc(ft_strlen(s) + 1 * sizeof(char))))
-        return (NULL);
-    while (s[i] != '\0')
-    {
-        ptr[i] = f(i, s[i]);
-        i++;
-    }
-    ptr[i] = '\0';
-    return (ptr);
+	unsigned int	i;
+	char			*ptr;
+
+	i = 0;
+	ptr = malloc(ft_strlen(s) + 1 * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		ptr[i] = f(i, s[i]);
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 /*int main()

@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-void    string_copy(char *dest, char *ori, int *ori_index, int finish, char *c)
+void	string_copy(char *dest, char *ori, int *ori_index, int finish, char *c)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (!(finish - 1 == 0 && ori[finish - 1] == *c))
 	{
@@ -29,12 +29,12 @@ void    string_copy(char *dest, char *ori, int *ori_index, int finish, char *c)
 	dest[i] = '\0';
 }
 
-void    chars_malloc(char **strings, char *s, char *c)
+void	chars_malloc(char **strings, char *s, char *c)
 {
-	int i;
-	int j;
-	int str_index;
-	
+	int	i;
+	int	j;
+	int	str_index;
+
 	i = 0;
 	j = 0;
 	str_index = 0;
@@ -54,12 +54,12 @@ void    chars_malloc(char **strings, char *s, char *c)
 	}
 }
 
-char    **ft_split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
-	char    **strings;
-	int i;
-	int count;
-	
+	char	**strings;
+	int		i;
+	int		count;
+
 	i = 0;
 	count = 0;
 	while (s[i] != '\0')
@@ -70,15 +70,15 @@ char    **ft_split(char *s, char c)
 		}
 		i++;
 	}
-	if (!(strings = malloc((count + 2) * sizeof(char *))))
+	strings = malloc((count + 2) * sizeof(char *));
+	if (!strings)
 		return (NULL);
 	strings[count + 1] = NULL;
 	chars_malloc(strings, s, &c);
-	
 	return (strings);
 }
 
-int main()
+/*int main()
 {
 	char **strings;
 	char a[] = "this is a string";
@@ -92,4 +92,4 @@ int main()
 		i++;
 	}
 	return 0;
-}
+}*/
