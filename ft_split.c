@@ -12,84 +12,92 @@
 
 #include "libft.h"
 
-void	string_copy(char *dest, char *ori, int *ori_index, int finish, char *c)
+static int	words_num(char const *s, char c)
 {
+	int	words_num;
 	int	i;
 
 	i = 0;
-	if (!(finish - 1 == 0 && ori[finish - 1] == *c))
-	{
-		while (*ori_index < finish)
-		{
-			dest[i] = ori[*ori_index];
-			i++;
-			*ori_index = *ori_index + 1;
-		}
-	}
-	dest[i] = '\0';
-}
-
-void	chars_malloc(char **strings, char *s, char *c)
-{
-	int	i;
-	int	j;
-	int	str_index;
-
-	i = 0;
-	j = 0;
-	str_index = 0;
-	while (s[j] != '\0')
-	{
-		if ((j == 0 && s[j] == *c) || s[j + 1] == *c || s[j + 1] == '\0')
-		{
-			if (j == 0 && s[j] == *c)
-				strings[str_index] = malloc(1 * sizeof(char));
-			else
-				strings[str_index] = malloc((j - i) + 2 * sizeof(char));
-			string_copy(strings[str_index], s, &i, j + 1, c);
-			i++;
-			str_index++;
-		}
-		j++;
-	}
-}
-
-char	**ft_split(char *s, char c)
-{
-	char	**strings;
-	int		i;
-	int		count;
-
-	i = 0;
-	count = 0;
+	words_num = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] != c)
 		{
-			count++;
+			words_num++;
+			while (s[i] != c && s[i] != '\0')
+				i++;
 		}
+		if (s[i] == '\0')
+			break ;
 		i++;
 	}
-	strings = malloc((count + 2) * sizeof(char *));
+	return (words_num);
+}
+
+static char	*strings_populate(char *strings, char const *s, char c, int *i)
+{
+	int	j;
+	int	k;
+
+	j = *i;
+	k = 0;
+	while (s[*i] != '\0')
+	{
+		if (s[*i] != c)
+		{
+			while (s[*i] != c && s[*i] != '\0')
+				*i = *i + 1;
+			strings = malloc((*i - j) + 1 * sizeof(char));
+			while (j < *i)
+			{
+				strings[k] = s[j];
+				k++;
+				j++;
+			}
+			break ;
+		}
+		*i = *i + 1;
+		j++;
+	}
+	strings[k] = '\0';
+	return (strings);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**strings;
+	int		words;
+	int		i;
+	int		s_index;
+
+	if (!s)
+		return (NULL);
+	words = words_num(s, c);
+	strings = malloc((words + 1) * sizeof(char *));
 	if (!strings)
 		return (NULL);
-	strings[count + 1] = NULL;
-	chars_malloc(strings, s, &c);
+	i = 0;
+	s_index = 0;
+	while (i < words)
+	{
+		strings[i] = strings_populate(strings[i], s, c, &s_index);
+		i++;
+	}
+	strings[words] = NULL;
 	return (strings);
 }
 
 /*int main()
 {
-	char **strings;
-	char a[] = "this is a string";
-	strings = ft_split(a, ' ');
-
 	int i = 0;
-	
-	while (strings[i])
+	char a[] = "Uma String Bonita";
+	char **ptr;
+	ptr = ft_split(a, ' ');
+	while (ptr[i])
 	{
-		printf ("%s\n", strings[i]);
+		printf("%s\n", ptr[i]);
 		i++;
 	}
+	printf("%s", ptr[i]);
 	return 0;
 }*/
