@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int	i;
+	int				i;
 	char			*ptr;
 
 	ptr = (char *)s;
@@ -29,8 +29,6 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (ptr[i] == c)
 			return (ptr + i);
-		if (i == 0)
-			break ;
 		i--;
 	}
 	return (NULL);
