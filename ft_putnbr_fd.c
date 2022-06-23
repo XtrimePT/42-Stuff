@@ -20,4 +20,5 @@ void	ft_putnbr_fd(int n, int fd)
 	s = ft_itoa(n);
 	nbytes = ft_strlen(s);
 	write(fd, s, nbytes);
+	free(s);
 }
