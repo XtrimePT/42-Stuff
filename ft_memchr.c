@@ -19,21 +19,19 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	ptr = (unsigned char *)s;
 	i = 0;
-	while (n--)
+	while (i < n)
 	{
-		if (ptr[i] == c)
+		if (ptr[i] == (unsigned char)c)
 			return (ptr + i);
 		i++;
 	}
 	return (NULL);
 }
 
-/*
-int main()
+/*int main()
 {
-	char a[] = "abcdef";
-	char *ptr = ft_memchr(a, 'z', 3);
+	char a[] = {-158};
+	char *ptr = ft_memchr(a, -158, 3);
 	printf("%s", ptr);
-	//printf("%d", ft_strncmp(a, b, 2));
 	return 0;
 }*/
